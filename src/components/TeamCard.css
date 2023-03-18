@@ -1,0 +1,11 @@
+.teamCard {
+    border: 5px solid rgb(220, 24, 96);
+    border-radius: 5px;
+    padding: 20px 20px;
+    margin: 5px;
+    background-color: rgb(213, 162, 221);
+}
+
+.custom-btn {
+    background-color: brown !important;
+}
