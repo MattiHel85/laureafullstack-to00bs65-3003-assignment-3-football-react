@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import '../App.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Navigate from "./Navigate";
+import Footer from "./Footer"
 
 
 function AddTeam() {
@@ -15,7 +18,8 @@ function AddTeam() {
     const [league, setLeague ] = useState();
     const [coach, setCoach ] = useState();
 
-    
+    const navigate = useNavigate();
+
     const postData = () => {
         const team = {badgeUrl, name, nickname, founded, groundName, groundCapacity, country, league, coach}
         console.log(team)
@@ -29,53 +33,68 @@ function AddTeam() {
         })
     }
     return (
-      <Form onSubmit={(e) => e.preventDefault()}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Link to image of badge</Form.Label>
-          <Form.Control type="text" placeholder="Enter image url" onChange={(e) => setBadgeUrl(e.target.value)}/>
-          {/* <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text> */}
-        </Form.Group>   
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Team name</Form.Label>
-          <Form.Control type="text" placeholder="Enter team name" onChange={(e) => setName(e.target.value)}/>
-        </Form.Group>   
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Nickname</Form.Label>
-          <Form.Control type="text" placeholder="Enter team nickname" onChange={(e) => setNickname(e.target.value)}/>
-        </Form.Group>   
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Founded</Form.Label>
-          <Form.Control type="number" placeholder="When were they founded?" onChange={(e) => setFounded(e.target.value)}/>
-        </Form.Group>   
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Ground name</Form.Label>
-          <Form.Control type="text" placeholder="Where do they play?" onChange={(e) => setGroundName(e.target.value)}/>
-        </Form.Group>   
-        <Form.Group className="mb-3" controlId="formBasicPassword" onChange={(e) => setGroundCapacity(e.target.value)}>
-          <Form.Label>Ground capacity</Form.Label>
-          <Form.Control type="number" placeholder="Enter ground capacity" />
-        </Form.Group>   
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Country</Form.Label>
-          <Form.Control type="text" placeholder="In which country do they play?" onChange={(e) => setCountry(e.target.value)}/>
-        </Form.Group>   
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>League</Form.Label>
-          <Form.Control type="text" placeholder="And which league do they play in?" onChange={(e) => setLeague(e.target.value)}/>
-        </Form.Group>   
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Coach</Form.Label>
-          <Form.Control type="text" placeholder="And who is their coach?" onChange={(e) => setCoach(e.target.value)}/>
-        </Form.Group>
-        {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group> */}
-        <Button onClick={postData} variant="primary" type="submit">
-          Submit
-        </Button>
-      </Form>
+        <>
+        <Navigate />
+        <div className="container my-5 pb-5">
+            <h1 className="text-center my-5">Add Team</h1>
+            <Form onSubmit={(e) => e.preventDefault()}>
+                <div className="d-flex justify-content-center">
+                    <div className="mx-3">
+                        <Form.Group className="mb-3">
+                            <Form.Label>Link to image of badge</Form.Label>
+                            <Form.Control type="text" placeholder="Enter image url" onChange={(e) => setBadgeUrl(e.target.value)}/>
+                        </Form.Group>   
+                        <Form.Group className="mb-3">
+                            <Form.Label>Team name</Form.Label>
+                            <Form.Control type="text" placeholder="Enter team name" onChange={(e) => setName(e.target.value)}/>
+                        </Form.Group>   
+                        <Form.Group className="mb-3">
+                            <Form.Label>Nickname</Form.Label>
+                            <Form.Control type="text" placeholder="Enter team nickname" onChange={(e) => setNickname(e.target.value)} required/>
+                        </Form.Group> 
+                    </div>
+                    <div className="mx-3">
+                        <Form.Group className="mb-3">
+                            <Form.Label>Founded</Form.Label>
+                            <Form.Control type="number" placeholder="What year?" onChange={(e) => setFounded(e.target.value)} required/>
+                        </Form.Group>   
+                        <Form.Group className="mb-3">
+                            <Form.Label>Ground name</Form.Label>
+                            <Form.Control type="text" placeholder="Where do they play?" onChange={(e) => setGroundName(e.target.value)} required/>
+                        </Form.Group>   
+                        <Form.Group className="mb-3" onChange={(e) => setGroundCapacity(e.target.value)} required>
+                            <Form.Label>Ground capacity</Form.Label>
+                            <Form.Control type="number" placeholder="Ground capacity" />
+                        </Form.Group> 
+                    </div>
+                    <div className="mx-3">
+                        <Form.Group className="mb-3">
+                            <Form.Label>Country</Form.Label>
+                            <Form.Control type="text" placeholder="Country name" onChange={(e) => setCountry(e.target.value)} required/>
+                        </Form.Group>   
+                        <Form.Group className="mb-3">
+                            <Form.Label>League</Form.Label>
+                            <Form.Control type="text" placeholder="League name" onChange={(e) => setLeague(e.target.value)} required/>
+                        </Form.Group>   
+                        <Form.Group className="mb-3">
+                            <Form.Label>Coach</Form.Label>
+                            <Form.Control type="text" placeholder="Coach name" onChange={(e) => setCoach(e.target.value)} required />
+                        </Form.Group>
+                    </div>
+                </div>
+                <div className="d-flex flex-row justify-content-evenly">
+                    <Button className="custom-btn-light" onClick={() => navigate(-1)}>
+                        Go back
+                    </Button>
+                    <Button className="custom-btn-light" onClick={postData} variant="primary" type="submit">
+                      Submit
+                    </Button>
+                </div>
+            </Form>
+        </div>
+        <Footer />
+    </>
+    
     )
 }
 

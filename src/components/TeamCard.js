@@ -1,11 +1,19 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { useNavigate } from "react-router-dom";
 
 function TeamCard(props) {
+  const navigate = useNavigate();
+  const id = props.id;
+  // console.log(id);
+
+  const navigateToTeamCard = () => {
+    navigate(`/team/${id}`)
+  }
   return (
 
-    <Card style={{ width: '18rem' }}>
+    <Card style={{ width: '18rem', margin: '15px', padding: '10px' }}>
       <Card.Img variant="top" src={props.badge} alt={props.badge}/>
       <Card.Body>
         <Card.Title>{props.name}</Card.Title>
@@ -15,7 +23,13 @@ function TeamCard(props) {
         <Card.Text>
             {props.groundName}
         </Card.Text>
-        <Button className='custom-btn'>More info...</Button>
+        <Card.Text>
+          {props.id}
+        </Card.Text>
+        <div className='d-flex flex-row justify-content-evenly'>
+          <Button onClick={navigateToTeamCard} className='custom-btn'>More info...</Button>
+          {/* <Button className='custom-btn'>More info...</Button> */}
+        </div>
       </Card.Body>
     </Card>
   )
