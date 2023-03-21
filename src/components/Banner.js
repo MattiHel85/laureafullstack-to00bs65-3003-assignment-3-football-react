@@ -4,11 +4,8 @@ function Banner() {
   return (
     <>
       <div className='banner-box'>
-        <div>
+        <div className="text-center" style={{fontFamily: "'Oswald', sans-serif"}}>
           Welcome to Teamfinder
-          {/* <p>
-          Search for your favourite football team, if you can't find it, then add it. It's that simple.
-        </p> */}
         </div>
         
       </div>

@@ -1,12 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Shadows+Into+Light&display=swap');
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-
-/* body {
-  position: relative;
-} */
 
 #teamCardHolder {
   margin-bottom: 100px !important;
@@ -23,6 +21,7 @@
 .custom-btn-light:hover {
   color: rgb(60, 0, 90) !important;
   font-weight: 500;
+  border: 2px solid;
 }
 
 .custom-nav {
@@ -68,4 +67,8 @@ a#api-link {
   font-weight:600 !important;
   text-transform: uppercase;
   text-decoration: none !important;
+}
+
+.team-info {
+  margin-bottom: 75px;
 }

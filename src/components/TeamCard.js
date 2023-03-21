@@ -13,22 +13,18 @@ function TeamCard(props) {
   }
   return (
 
-    <Card style={{ width: '18rem', margin: '15px', padding: '10px' }}>
-      <Card.Img variant="top" src={props.badge} alt={props.badge}/>
+    <Card style={{ width: '18rem', margin: '15px',border: 'solid rgb(60, 0, 90)'}}>
+      <Card.Img variant="top" src={props.badge} alt={props.badge} style={{backgroundColor: "rgb(60, 0, 90)", padding: "10px"}}/>
       <Card.Body>
-        <Card.Title>{props.name}</Card.Title>
+        <Card.Title as={"h4"}>{props.name}</Card.Title>
         <Card.Text>
             {props.nickname}
         </Card.Text>
         <Card.Text>
             {props.groundName}
         </Card.Text>
-        <Card.Text>
-          {props.id}
-        </Card.Text>
         <div className='d-flex flex-row justify-content-evenly'>
-          <Button onClick={navigateToTeamCard} className='custom-btn'>More info...</Button>
-          {/* <Button className='custom-btn'>More info...</Button> */}
+          <Button onClick={navigateToTeamCard} className='custom-btn'>More info</Button>
         </div>
       </Card.Body>
     </Card>

@@ -9,16 +9,33 @@ import About from "./components/About"
 import TeamCardHolder from "./components/TeamCardHolder";
 import Footer from "./components/Footer"
 import TeamInfo from "./components/TeamInfo";
+import UpdateTeam from "./components/UpdateTeam";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [teams, setTeams ] = useState([]);
+
+    useEffect(() => {
+      const fetchTeams = async () => {
+        setIsLoading(true);
+        const response = await fetch('https://football-teams-rest-api-assignment.onrender.com/api/getall')
+        const jsonData = await response.json()
+        const data = jsonData.sort((a, b) => a.name.localeCompare(b.name))
+        setIsLoading(false);
+        setTeams(data)
+      }
+      fetchTeams()
+    }, []) 
+
   return (
     <>
     <Router>
       <Routes>
-        <Route path="/" element={[<Navigate />, <Banner />, <About />, <Footer />]} />
-        <Route path="/allteams" element={<TeamCardHolder />} />
+        <Route path="/" element={[<Navigate teams={teams}/>, <Banner />, <About />, <Footer />]} />
+        <Route path="/allteams" element={ <TeamCardHolder isLoading={isLoading} teams={teams} />} />
         <Route path="/addteam" element={<AddTeam />} />
         <Route path="/team/:id" element={<TeamInfo />} />
+        <Route path="/team/update/:id" element={<UpdateTeam />} />
       </Routes>
     </Router>
   </>      
