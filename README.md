@@ -1,6 +1,6 @@
 # Teamfinder
 
-React front end to backend I made as part of my studies at Laurea UAS.
+React front end to connected to back end I made as part of my studies at Laurea UAS.
 
 ## Description of app
 
