@@ -9,7 +9,7 @@ import Footer from "./Footer";
 import Navigate from "./Navigate";
 import axios from "axios";
 import Spinner from 'react-bootstrap/Spinner';
-// {/* <Spinner animation="grow" /> */}
+import SearchFunction from './SearchFunction';
 
 function TeamInfo() {
     const [isLoading, setIsLoading] = useState(false);
@@ -43,6 +43,9 @@ function TeamInfo() {
   return (
     <>
       <Navigate />
+      <div className='my-4 d-flex justify-content-center'>
+        <SearchFunction />
+      </div>
       <div className="team-info">
         <Container fluid="sm" className="m-5 p-5">
           { isLoading ? <Spinner animation="grow" /> :

@@ -45,14 +45,24 @@
 }
 
 .banner-box {
-  height: 500px;
+  height: 600px;
   width: 100%;
   background-color: rgb(243, 243, 243);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-size: 75px;
   font-weight: 500;
+}
+
+.banner-box-title {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.banner-search {
+  display: flex;
+  justify-content: center;
+  align-items: end;
 }
 
 .footer {

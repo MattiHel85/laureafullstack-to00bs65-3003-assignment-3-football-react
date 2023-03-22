@@ -5,6 +5,7 @@ import Navigate from './Navigate';
 import Footer from './Footer';
 import { Button } from 'react-bootstrap';
 import Spinner from 'react-bootstrap/Spinner';
+import SearchFunction from './SearchFunction';
 
 function TeamCardHolder({teams, isLoading}) {
     const navigate = useNavigate();
@@ -12,8 +13,11 @@ function TeamCardHolder({teams, isLoading}) {
     return (
         <>
             <Navigate />
-            
+            <div className='my-4 d-flex justify-content-center'>
+                <SearchFunction teams={teams}/>
+            </div>
             <div className='d-flex flex-column' style={{width: "100%", marginBottom: "75px"}}>
+                
                 <div className=' d-flex justify-content-center my-4'>
                     <h1>Browse Teams</h1>
                 </div>
