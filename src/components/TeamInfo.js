@@ -57,7 +57,7 @@ function TeamInfo() {
               <h4>{team.name}</h4>
               <p>Nickname: {team.nickname}</p>
               <p>Founded: {team.founded}</p>
-              <p>Ground: {team.groundName}</p>
+              <p>Ground name: {team.groundName}</p>
               <p>Ground capacity: {team.capacity}</p>
               <p>Country: {team.country}</p>
               <p>League: {team.league}</p>
