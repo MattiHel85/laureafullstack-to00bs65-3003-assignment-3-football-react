@@ -1,6 +1,6 @@
 # Teamfinder
 
-REPO NAME: laureafullstack-to00bs65-3003-assignment-3-football-react
+React front end to backend I made as part of my studies at Laurea UAS.
 
 ## Description of app
 
