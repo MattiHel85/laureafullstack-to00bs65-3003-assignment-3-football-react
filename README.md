@@ -2,7 +2,7 @@
 
 REPO NAME: laureafullstack-to00bs65-3003-assignment-3-football-react
 
-## description of app
+## Description of app
 
 Teamfinder is a react app that displays details of football teams from my own API [rest_api_assignment_TO00BS65-3003](https://github.com/MattiHel85/rest_api_assignment_TO00BS65-3003).
 
