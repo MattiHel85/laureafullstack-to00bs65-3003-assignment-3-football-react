@@ -45,7 +45,7 @@
 }
 
 .banner-box {
-  height: 600px;
+  height: 500px;
   width: 100%;
   background-color: rgb(243, 243, 243);
   font-size: 75px;
@@ -53,16 +53,10 @@
 }
 
 .banner-box-title {
-  height: 300px;
   display: flex;
   justify-content: center;
   align-items: end;
-}
-
-.banner-search {
-  display: flex;
-  justify-content: center;
-  align-items: end;
+  padding-top: 150px;
 }
 
 .footer {
@@ -81,4 +75,7 @@ a#api-link {
 
 .team-info {
   margin-bottom: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
 }

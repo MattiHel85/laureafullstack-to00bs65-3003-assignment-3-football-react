@@ -13,26 +13,18 @@ function Navigate() {
 
 
   return (
-    <Navbar expand="lg" className='custom-nav'>
+    <>
+    <Navbar className='custom-nav'>
       <Container>
-        <Row style={{width: "100%"}}>
-          {/* <Col xs="6"> */}
-            <Navbar.Brand href="/" className='custom-navbrand' >Teamfinder</Navbar.Brand>
-            {/* <Navbar.Toggle aria-controls="navbarScroll" className='m-0'/> */}
-            <Nav>
-                <Nav.Link href="/allteams" className='custom-navlink'>All teams</Nav.Link>
-                <Nav.Link href="/addteam" className='custom-navlink'>Add team</Nav.Link>
-            </Nav>
-          {/* </Col> */}
-          <Col xs="6">
-          
-            {/* <Navbar.Collapse id="navbarScroll" className='custom-nav-collapse'>
-              
-            </Navbar.Collapse> */}
-          </Col>
-        </Row>
+        <Navbar.Brand href="/" className='custom-navbrand d-none d-md-block' style={{fontsize: '50px'}}>Teamfinder</Navbar.Brand>
+        <Nav>
+          <Nav.Link href="/" className='custom-navlink d-block d-md-none'>Home</Nav.Link>
+          <Nav.Link href="/allteams" className='custom-navlink'>All teams</Nav.Link>
+          <Nav.Link href="/addteam" className='custom-navlink'>Add team</Nav.Link>
+        </Nav>
       </Container>
     </Navbar>
+    </>
   );
 }
 

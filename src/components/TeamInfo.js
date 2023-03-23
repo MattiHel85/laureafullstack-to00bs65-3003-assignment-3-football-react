@@ -47,13 +47,13 @@ function TeamInfo() {
         <SearchFunction />
       </div>
       <div className="team-info">
-        <Container fluid="sm" className="m-5 p-5">
+        <Container style={{width: "100%"}}>
           { isLoading ? <Spinner animation="grow" /> :
-          <Row className="justify-content-md-center">
-            <Col xs={12} md={4} >
-              <Image src={team.badgeUrl} className="img-fluid"></Image>
+          <Row>
+            <Col xs={12} md={4}  className='d-inline-flex flex-column justift-content-center ms-auto pb-3'>
+              <Image src={team.badgeUrl} className="img"></Image>
             </Col>
-            <Col xs={12} md={4}>
+            <Col xs={12} md={4} className='d-inline-flex flex-column justift-content-center ms-auto pb-3'>
               <h4>{team.name}</h4>
               <p>Nickname: {team.nickname}</p>
               <p>Founded: {team.founded}</p>
@@ -63,19 +63,18 @@ function TeamInfo() {
               <p>League: {team.league}</p>
               <p>Coach: {team.coach}</p>
             </Col>
-            <Col xs={12} md={4}>
-            <div className='d-inline-flex flex-column justift-content-evenly ms-auto' style={{width: '50%'}}>
-              <Button onClick={() => navigate(-1)} className='custom-btn-light mb-2'>Back</Button>
-              <Button onClick={updateTeam} className='custom-btn-light mb-2 '>Update</Button>
-              <Button onClick={deleteTeam} className='custom-btn-light mb-2 '>Delete</Button>
+            <Col xs={12} md={4} className='d-flex flex-row justify-content-center pb-3'>
+            <div style={{width: '50%'}}>
+              <Button onClick={() => navigate(-1)} className='custom-btn-light mb-2' style={{width: '100%'}}>Back</Button>
+              <Button onClick={updateTeam} className='custom-btn-light mb-2 ' style={{width: '100%'}}>Update</Button>
+              <Button onClick={deleteTeam} className='custom-btn-light mb-2 ' style={{width: '100%'}}>Delete</Button>
             </div>
             </Col>
           </Row>
           }
-        </Container>
-        
+        </Container>        
       </div>
-        <Footer />
+      <Footer />
     </>
   )
 }
