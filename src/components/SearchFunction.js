@@ -30,23 +30,29 @@ function SearchFunction({teams}) {
 
     return (
       <>           
-        <Container className="mt-3 py-5 d-flex justify-content-center">
+        <Container className="mt-3 py-5 mx-3 d-flex justify-content-center">
             <Col>
                 <Row>
                     {show === true ? 
                         <Alert className="alert" variant="danger">
-                            <Alert.Heading>The team {searchedTeam} isn't listed, please try again. </Alert.Heading>
+                            <Alert.Heading>
+                                {
+                                    searchedTeam ? `The team ${searchedTeam} isn't listed, please try again.`: "Please input some text."
+                                }
+                            </Alert.Heading>
                             <hr />
                             <div>
                                 <div className="d-flex justify-content-start">
                                     <p>
-                                        If you think it should be then you can add it yourself.
+                                        {
+                                            searchedTeam ? "If you think it should be then you can add it yourself." : "I don't see the sense in searching for nothing"
+                                        }
                                     </p>
                                 </div>
                                 <div className="d-flex justify-content-end">
-                                    <Button onClick={() => navigate('/addteam')} variant="outline-danger" className="mx-1">
-                                        Add team
-                                    </Button>
+                                    {
+                                        searchedTeam ? <Button onClick={() => navigate('/addteam')} variant="outline-danger" className="mx-1">Add team</Button> : ""
+                                    }                                    
                                     <Button onClick={() => setShow(false)} variant="outline-danger" className="mx-1">
                                         Close 
                                     </Button>

@@ -20,6 +20,7 @@ function AddTeam() {
     const [country, setCountry ] = useState();
     const [league, setLeague ] = useState();
     const [coach, setCoach ] = useState();
+    const [errorMessage, setErrorMessage ] = useState("");
 
     const navigate = useNavigate();
 
@@ -32,32 +33,31 @@ function AddTeam() {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(team)
         })
-        
-        navigate('/allteams')
+        team.value > 0 ? navigate('/allteams') : setErrorMessage('Something went wrong, please try again')
     }
     return (
         <>
         <Navigate />
         <div className="container my-5 pb-5">
-            <h1 className="text-center my-5" style={{fontFamily: "'Oswald', sans-serif"}}>Add Team</h1>
+            <h1 className="text-center my-3" style={{fontFamily: "'Oswald', sans-serif"}}>Add Team</h1>
+            { errorMessage ? <h4 className="py-3 d-flex justify-content-center" style={{color: "red"}}>{errorMessage}</h4> : "" }
             <Form>
                 <Container>
                     <Row>
-                        <Col xs="12" md className="m-1">
+                        <Col xs="12" sm="3"></Col>
+                        <Col xs="12" sm="6" className="m-1">
                             <Form.Group className="mb-3">
                                 <Form.Label>Link to image of badge</Form.Label>
-                                <Form.Control type="text" placeholder="Enter image url" onChange={(e) => setBadgeUrl(e.target.value)}/>
+                                <Form.Control type="text" placeholder="Enter image url" onChange={(e) => setBadgeUrl(e.target.value)} required/>
                             </Form.Group>   
                             <Form.Group className="mb-3">
                                 <Form.Label>Team name</Form.Label>
-                                <Form.Control type="text" placeholder="Enter team name" onChange={(e) => setName(e.target.value)}/>
+                                <Form.Control type="text" placeholder="Enter team name" onChange={(e) => setName(e.target.value)} required/>
                             </Form.Group>   
                             <Form.Group className="mb-3">
                                 <Form.Label>Nickname</Form.Label>
                                 <Form.Control type="text" placeholder="Enter team nickname" onChange={(e) => setNickname(e.target.value)} required/>
                             </Form.Group> 
-                        </Col>
-                        <Col xs="12" md className="m-1">
                             <Form.Group className="mb-3">
                                 <Form.Label>Founded</Form.Label>
                                 <Form.Control type="number" placeholder="What year?" onChange={(e) => setFounded(e.target.value)} required/>
@@ -70,8 +70,6 @@ function AddTeam() {
                                 <Form.Label>Ground capacity</Form.Label>
                                 <Form.Control type="number" placeholder="Ground capacity" />
                             </Form.Group> 
-                        </Col>
-                        <Col xs="12" md className="m-1">
                             <Form.Group className="mb-3">
                                 <Form.Label>Country</Form.Label>
                                 <Form.Control type="text" placeholder="Country name" onChange={(e) => setCountry(e.target.value)} required/>
@@ -85,15 +83,16 @@ function AddTeam() {
                                 <Form.Control type="text" placeholder="Coach name" onChange={(e) => setCoach(e.target.value)} required />
                             </Form.Group>
                         </Col>
+                        <Col xs="12" sm="3"></Col>
                     </Row>
-                    <Row className="text-center">
-                        <Col xs className="m-1">
-                            <Button className="custom-btn-light" onClick={() => navigate(-1)}>
+                    <Row className="text-center px-5 d-flex justify-content-center align-items-start">
+                        <Col xs="12" md="6">
+                            <Button className="custom-btn-light mt-1" style={{width: "100px"}} onClick={() => navigate(-1)}>
                                 Back
                             </Button>
                         </Col>
-                        <Col xs className="m-1">
-                            <Button className="custom-btn-light" onClick={postData} variant="primary" type="submit">
+                        <Col xs="12" md="6">
+                            <Button className="custom-btn-light mt-1" style={{width: "100px"}} onClick={postData} variant="primary" type="submit">
                               Submit
                             </Button>
                         </Col>

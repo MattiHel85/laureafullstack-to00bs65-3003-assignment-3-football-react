@@ -37,7 +37,6 @@ function UpdateTeam() {
 
     const updateData = () => {
         const team = {badgeUrl, name, nickname, founded, groundName, groundCapacity, country, league, coach}
-        console.log(team)
 
         fetch(`https://football-teams-rest-api-assignment.onrender.com/api/update/${id}`, {
             method: 'PUT',
@@ -46,6 +45,7 @@ function UpdateTeam() {
         })
         fetchTeam()
         navigate(`/team/${id}`)
+        
     }
     return (
         <>
@@ -53,7 +53,63 @@ function UpdateTeam() {
         <div className="container my-5 pb-5">
             <h1 className="text-center my-5" style={{fontFamily: "'Oswald', sans-serif"}}>Update Team</h1>
             <Form>
-                <Container>
+            <Container>
+                    <Row>
+                        <Col xs="12" sm="3"></Col>
+                        <Col xs="12" sm="6" className="m-1">
+                            <Form.Group className="mb-3">
+                                <Form.Label>Link to image of badge</Form.Label>
+                                <Form.Control type="text" defaultValue={team.badgeUrl} placeholder="Enter image url" onChange={(e) => setBadgeUrl(e.target.value)} required/>
+                            </Form.Group>   
+                            <Form.Group className="mb-3">
+                                <Form.Label>Team name</Form.Label>
+                                <Form.Control type="text" defaultValue={team.name} placeholder="Enter team name" onChange={(e) => setName(e.target.value)} required/>
+                            </Form.Group>   
+                            <Form.Group className="mb-3">
+                                <Form.Label>Nickname</Form.Label>
+                                <Form.Control type="text" defaultValue={team.nickname} placeholder="Enter team nickname" onChange={(e) => setNickname(e.target.value)} required/>
+                            </Form.Group> 
+                            <Form.Group className="mb-3">
+                                <Form.Label>Founded</Form.Label>
+                                <Form.Control type="number" defaultValue={team.founded} placeholder="What year?" onChange={(e) => setFounded(e.target.value)} required/>
+                            </Form.Group>   
+                            <Form.Group className="mb-3">
+                                <Form.Label>Ground name</Form.Label>
+                                <Form.Control type="text" defaultValue={team.groundName} placeholder="Where do they play?" onChange={(e) => setGroundName(e.target.value)} required/>
+                            </Form.Group>   
+                            <Form.Group className="mb-3" onChange={(e) => setGroundCapacity(e.target.value)} required>
+                                <Form.Label>Ground capacity</Form.Label>
+                                <Form.Control type="number" defaultValue={team.groundCapacity} placeholder="Ground capacity" />
+                            </Form.Group> 
+                            <Form.Group className="mb-3">
+                                <Form.Label>Country</Form.Label>
+                                <Form.Control type="text" defaultValue={team.country} placeholder="Country name" onChange={(e) => setCountry(e.target.value)} required/>
+                            </Form.Group>   
+                            <Form.Group className="mb-3">
+                                <Form.Label>League</Form.Label>
+                                <Form.Control type="text" defaultValue={team.league} placeholder="League name" onChange={(e) => setLeague(e.target.value)} required/>
+                            </Form.Group>   
+                            <Form.Group className="mb-3">
+                                <Form.Label>Coach</Form.Label>
+                                <Form.Control type="text" defaultValue={team.coach} placeholder="Coach name" onChange={(e) => setCoach(e.target.value)} required />
+                            </Form.Group>
+                        </Col>
+                        <Col xs="12" sm="3"></Col>
+                    </Row>
+                    <Row className="text-center px-5 d-flex justify-content-center align-items-start">
+                        <Col xs="12" md="6">
+                            <Button className="custom-btn-light mt-1" style={{width: "100px"}} onClick={() => navigate(-1)}>
+                                Back
+                            </Button>
+                        </Col>
+                        <Col xs="12" md="6">
+                            <Button className="custom-btn-light mt-1" style={{width: "100px"}} onClick={updateData} variant="primary" type="submit">
+                              Submit
+                            </Button>
+                        </Col>
+                    </Row>
+                </Container>
+                {/* <Container>
                     <Row>
                         <Col xs="12" md className="m-1">
                             <Form.Group className="mb-3">
@@ -110,7 +166,7 @@ function UpdateTeam() {
                             </Button>
                         </Col>
                     </Row>
-                </Container>
+                </Container> */}
             </Form>
         </div>
         <Footer />

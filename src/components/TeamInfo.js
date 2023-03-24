@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import Image from 'react-bootstrap/Image';
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Footer from "./Footer";
 import Navigate from "./Navigate";
 import axios from "axios";
 import Spinner from 'react-bootstrap/Spinner';
+import Card from 'react-bootstrap/Card';
 
 function TeamInfo() {
     const [isLoading, setIsLoading] = useState(false);
+    const [showDeleteButton, setShowDeleteButton] = useState(false)
+    const [deleteDoubleCheck, setDeleteDoubleCheck] = useState(false)
     const [team, setTeam ] = useState({});
     const { id } = useParams();    
     const navigate = useNavigate();
@@ -41,32 +41,42 @@ function TeamInfo() {
     <>
       <Navigate />
       <div className="team-info">
-        <Container style={{width: "100%"}}>
-          { isLoading ? <Spinner animation="grow" /> :
-          <Row>
-            <Col xs={12} md={4}  className='d-inline-flex flex-column justify-content-center align-items-center ms-auto pb-3'>
-              <Image src={team.badgeUrl} className="img-fluid"></Image>
-            </Col>
-            <Col xs={12} md={4} className='d-inline-flex flex-column justify-content-center align-items-center ms-auto pb-3'>
-              <h4>{team.name}</h4>
-              <p>Nickname: {team.nickname}</p>
-              <p>Founded: {team.founded}</p>
-              <p>Ground name: {team.groundName}</p>
-              <p>Ground capacity: {team.groundCapacity}</p>
-              <p>Country: {team.country}</p>
-              <p>League: {team.league}</p>
-              <p>Coach: {team.coach}</p>
-            </Col>
-            <Col xs={12} md={4} className='d-flex flex-row justify-content-center align-items-start pb-3'>
-            <div className="mt-5">
-              <Button onClick={() => navigate(-1)} className='custom-btn-light mb-2' style={{width: '100%'}}>Back</Button>
-              <Button onClick={updateTeam} className='custom-btn-light mb-2 ' style={{width: '100%'}}>Update</Button>
-              <Button onClick={deleteTeam} className='custom-btn-light mb-2 ' style={{width: '100%'}}>Delete</Button>
-            </div>
-            </Col>
-          </Row>
+        <Container style={{width: "100%"}} className="p-2 d-flex justify-content-center align-items-center">
+          { isLoading ? <Spinner animation="grow" /> :         
+              <Card className="p-5 d-flex justify-content-center align-items-center" style={{ border: "5px solid rgb(60, 0, 90)", borderRadius: "25px"}}>
+                <Card.Img className="mx-1" variant="top" src={team.badgeUrl} style={{width: "80%"}}/>  
+                <Card.Title style={{fontSize: "40px"}}>{team.name}</Card.Title>
+                <hr /> 
+                <Card.Subtitle style={{fontSize: "30px"}}>Nickname: {team.nickname}</Card.Subtitle>
+                <hr />
+                <div className="my-3 d-column-flex justify-content-center align-items-center">
+                  <Card.Text className="mx-2" style={{fontSize: "20px"}}>Founded: {team.founded}</Card.Text>
+                  <Card.Text className="mx-2" style={{fontSize: "20px"}}>Ground name: {team.groundName}</Card.Text>
+                  <Card.Text className="mx-2" style={{fontSize: "20px"}}>Ground capacity: {team.groundCapacity}</Card.Text>
+                  <Card.Text className="mx-2" style={{fontSize: "20px"}}>Country: {team.country}</Card.Text>
+                  <Card.Text className="mx-2" style={{fontSize: "20px"}}>League: {team.league}</Card.Text>
+                  <Card.Text className="mx-2" style={{fontSize: "20px"}}>Coach: {team.coach}</Card.Text>
+                </div>     
+
+                {
+                showDeleteButton === false ? 
+                  <div className="d-inline-flex justify-content-center">
+                    <Button onClick={() => navigate(-1)} className='custom-btn mx-2' style={{width: '50%'}}>Back</Button>
+                    <Button onClick={updateTeam} className='custom-btn mx-2 ' style={{width: '50%'}}>Update</Button>
+                    <Button onClick={() => setShowDeleteButton(true)} variant="danger" className='mx-2 ' style={{width: '50%'}}>Delete</Button>
+                  </div> :
+                  <div className='my-2' style={{color: "red"}}>
+                    <h4>Delete {team.name}?</h4>
+                    <div className="d-column justify-content-center">
+                      <Button className="mt-1 custom-btn" onClick={() => setShowDeleteButton(false)} style={{width: "100%" }} >I've changed my mind</Button>
+                      <Button className="mt-1" variant="danger" onClick={deleteTeam} style={{width: "100%" }} >Yes, delete</Button>
+                    </div>
+                  </div>
+                }
+              </Card>
           }
-        </Container>        
+        </Container>      
+         
       </div>
       <Footer />
     </>
