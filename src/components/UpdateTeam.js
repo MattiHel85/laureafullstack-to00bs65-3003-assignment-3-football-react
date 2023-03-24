@@ -109,64 +109,6 @@ function UpdateTeam() {
                         </Col>
                     </Row>
                 </Container>
-                {/* <Container>
-                    <Row>
-                        <Col xs="12" md className="m-1">
-                            <Form.Group className="mb-3">
-                                <Form.Label>Link to image of badge</Form.Label>
-                                <Form.Control type="text" defaultValue={team.badgeUrl} placeholder="Enter image url" onChange={(e) => setBadgeUrl(e.target.value)}/>
-                            </Form.Group>   
-                            <Form.Group className="mb-3">
-                                <Form.Label>Team name</Form.Label>
-                                <Form.Control type="text" defaultValue={team.name} placeholder="Enter team name" onChange={(e) => setName(e.target.value)}/>
-                            </Form.Group>   
-                            <Form.Group className="mb-3">
-                                <Form.Label>Nickname</Form.Label>
-                                <Form.Control type="text" defaultValue={team.nickname} placeholder="Enter team nickname" onChange={(e) => setNickname(e.target.value)} required/>
-                            </Form.Group> 
-                        </Col>
-                        <Col xs="12" md className="m-1">
-                            <Form.Group className="mb-3">
-                                <Form.Label>Founded</Form.Label>
-                                <Form.Control type="number" defaultValue={team.founded} placeholder="What year?" onChange={(e) => setFounded(e.target.value)} required/>
-                            </Form.Group>   
-                            <Form.Group className="mb-3">
-                                <Form.Label>Ground name</Form.Label>
-                                <Form.Control type="text" defaultValue={team.groundName} placeholder="Where do they play?" onChange={(e) => setGroundName(e.target.value)} required/>
-                            </Form.Group>   
-                            <Form.Group className="mb-3" onChange={(e) => setGroundCapacity(e.target.value)} required>
-                                <Form.Label>Ground capacity</Form.Label>
-                                <Form.Control type="number" defaultValue={team.groundCapacity} placeholder="Ground capacity" />
-                            </Form.Group> 
-                        </Col>
-                        <Col xs="12" md className="m-1">
-                            <Form.Group className="mb-3">
-                                <Form.Label>Country</Form.Label>
-                                <Form.Control type="text" defaultValue={team.country} placeholder="Country name" onChange={(e) => setCountry(e.target.value)} required/>
-                            </Form.Group>   
-                            <Form.Group className="mb-3">
-                                <Form.Label>League</Form.Label>
-                                <Form.Control type="text" defaultValue={team.league} placeholder="League name" onChange={(e) => setLeague(e.target.value)} required/>
-                            </Form.Group>   
-                            <Form.Group className="mb-3">
-                                <Form.Label>Coach</Form.Label>
-                                <Form.Control type="text" defaultValue={team.coach} placeholder="Coach name" onChange={(e) => setCoach(e.target.value)} required />
-                            </Form.Group>
-                        </Col>
-                    </Row>
-                    <Row className="text-center">
-                        <Col xs className="m-1">
-                            <Button className="custom-btn-light" onClick={() => navigate(-1)}>
-                                Back
-                            </Button>
-                        </Col>
-                        <Col xs className="m-1">
-                            <Button className="custom-btn-light" onClick={updateData} variant="primary" type="submit">
-                              Submit
-                            </Button>
-                        </Col>
-                    </Row>
-                </Container> */}
             </Form>
         </div>
         <Footer />
