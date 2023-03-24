@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -11,21 +11,17 @@ import Alert from 'react-bootstrap/Alert';
 
 
 function SearchFunction({teams}) {
-    const ref = useRef();
     const navigate = useNavigate();
-    const [search, setSearch] = useState()
+    const [search, setSearch] = useState('')
+    const [teamsForSearch, setTeamsForSearch] = useState([])
     const [searchedTeam, setSearchedTeam] = useState()
-    const [show, setShow] = useState(false);
+    const [show, setShow] = useState(false)
 
     
-    const teamSearch = (e) => {
-        e.preventDefault()
-        setSearchedTeam(search)
-        teams.map((team) => {
-            team.name.toLowerCase() === search.toLowerCase() ?
-            navigate(`/team/${team._id}`) :
-            setShow(true)
-        })
+    const teamSearch = () => {
+        setSearchedTeam(search);
+        setTeamsForSearch(teams)
+        search !== null ? teamsForSearch.map((team) => {team.name.toLowerCase() === search.toLowerCase() ? navigate(`/team/${team._id}`) : setShow(true)}) : setShow(true)
     }
 
     return (
@@ -66,8 +62,7 @@ function SearchFunction({teams}) {
                 <Row className="d-flex justify-content-center">
                     <InputGroup className="mb-3" style={{width: "75%"}}>
                         <Form.Control
-                          placeholder="Search for a team"
-                          ref={ref}
+                          placeholder="Find team"
                           aria-label="Search team"
                           aria-describedby="Search"
                           onChange={(e) => setSearch(e.target.value)}

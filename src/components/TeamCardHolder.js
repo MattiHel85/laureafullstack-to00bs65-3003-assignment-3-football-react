@@ -31,7 +31,7 @@ function TeamCardHolder({teams, isLoading}) {
                     ))}
                 </div>
                 <div className='m-5 text-center'>
-                    <Button className='custom-btn-light' onClick={() => navigate(-1)}>Back</Button>
+                    <Button className='custom-btn-light' onClick={() => navigate(-1)} style={{width:"25%"}}>Back</Button>
                 </div>                
             </div>
             <Footer />

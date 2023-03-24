@@ -11,7 +11,6 @@ import Card from 'react-bootstrap/Card';
 function TeamInfo() {
     const [isLoading, setIsLoading] = useState(false);
     const [showDeleteButton, setShowDeleteButton] = useState(false)
-    const [deleteDoubleCheck, setDeleteDoubleCheck] = useState(false)
     const [team, setTeam ] = useState({});
     const { id } = useParams();    
     const navigate = useNavigate();
@@ -44,18 +43,30 @@ function TeamInfo() {
         <Container style={{width: "100%"}} className="p-2 d-flex justify-content-center align-items-center">
           { isLoading ? <Spinner animation="grow" /> :         
               <Card className="p-5 d-flex justify-content-center align-items-center" style={{ border: "5px solid rgb(60, 0, 90)", borderRadius: "25px"}}>
-                <Card.Img className="mx-1" variant="top" src={team.badgeUrl} style={{width: "80%"}}/>  
+                <Card.Img className="mx-1" variant="top" src={team.badgeUrl} />  
                 <Card.Title style={{fontSize: "40px"}}>{team.name}</Card.Title>
                 <hr /> 
                 <Card.Subtitle style={{fontSize: "30px"}}>Nickname: {team.nickname}</Card.Subtitle>
                 <hr />
                 <div className="my-3 d-column-flex justify-content-center align-items-center">
-                  <Card.Text className="mx-2" style={{fontSize: "20px"}}>Founded: {team.founded}</Card.Text>
-                  <Card.Text className="mx-2" style={{fontSize: "20px"}}>Ground name: {team.groundName}</Card.Text>
-                  <Card.Text className="mx-2" style={{fontSize: "20px"}}>Ground capacity: {team.groundCapacity}</Card.Text>
-                  <Card.Text className="mx-2" style={{fontSize: "20px"}}>Country: {team.country}</Card.Text>
-                  <Card.Text className="mx-2" style={{fontSize: "20px"}}>League: {team.league}</Card.Text>
-                  <Card.Text className="mx-2" style={{fontSize: "20px"}}>Coach: {team.coach}</Card.Text>
+                  <Card.Text className="mx-2" style={{fontSize: "20px"}}>
+                    Founded: {team.founded} 
+                  </Card.Text>
+                  <Card.Text className="mx-2" style={{fontSize: "20px"}}>
+                    Ground name: {team.groundName}
+                  </Card.Text>
+                  <Card.Text className="mx-2" style={{fontSize: "20px"}}>
+                    Ground capacity: {team.groundCapacity}
+                  </Card.Text>
+                  <Card.Text className="mx-2" style={{fontSize: "20px"}}>
+                    Country: {team.country}
+                  </Card.Text>
+                  <Card.Text className="mx-2" style={{fontSize: "20px"}}>
+                    League: {team.league}
+                  </Card.Text>
+                  <Card.Text className="mx-2" style={{fontSize: "20px"}}>
+                    Coach: {team.coach}
+                  </Card.Text>
                 </div>     
 
                 {

@@ -33,7 +33,7 @@ function AddTeam() {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(team)
         })
-        team.value > 0 ? navigate('/allteams') : setErrorMessage('Something went wrong, please try again')
+        team.value !== null ? navigate('/allteams') : setErrorMessage('Something went wrong, please try again')
     }
     return (
         <>
