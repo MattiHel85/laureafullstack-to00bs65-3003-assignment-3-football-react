@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 
 
 function About() {
+  
   return (
     <Container>
       <h3 className='p-2 mt-5'>What is Teamfinder?</h3>

@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 function TeamCard(props) {
   const navigate = useNavigate();
   const id = props.id;
-  // console.log(id);
 
   const navigateToTeamCard = () => {
     navigate(`/team/${id}`)

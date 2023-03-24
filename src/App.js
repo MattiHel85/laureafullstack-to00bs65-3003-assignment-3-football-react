@@ -34,7 +34,7 @@ function App() {
         <Route path="/" element={[<Navigate />, <Banner teams={teams}/>, <About />, <Footer />]} />
         <Route path="/allteams" element={ <TeamCardHolder isLoading={isLoading} teams={teams} />} />
         <Route path="/addteam" element={<AddTeam />} />
-        <Route path="/team/:id" element={<TeamInfo teams={teams}/>} />
+        <Route path="/team/:id" element={<TeamInfo teams={teams} />} />
         <Route path="/team/update/:id" element={<UpdateTeam />} />
       </Routes>
     </Router>

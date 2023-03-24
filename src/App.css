@@ -37,6 +37,8 @@
 
 .custom-navlink {
   color: white !important;
+  margin-left: 5px !important;
+  margin-right: 5px !important;
 }
 
 .custom-nav-collapse {
@@ -45,7 +47,7 @@
 }
 
 .banner-box {
-  height: 500px;
+  height: 700px;
   width: 100%;
   background-color: rgb(243, 243, 243);
   font-size: 75px;
@@ -73,9 +75,20 @@ a#api-link {
   text-decoration: none !important;
 }
 
+a.none-nav-link {
+  color: inherit !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+}
+
 .team-info {
+  margin-top: 75px;
   margin-bottom: 75px;
   display: flex;
   justify-content: center;
   align-items: end;
+}
+
+.alert {
+  font-size: 15px !important;
 }

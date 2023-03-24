@@ -9,7 +9,6 @@ import Footer from "./Footer";
 import Navigate from "./Navigate";
 import axios from "axios";
 import Spinner from 'react-bootstrap/Spinner';
-import SearchFunction from './SearchFunction';
 
 function TeamInfo() {
     const [isLoading, setIsLoading] = useState(false);
@@ -34,8 +33,6 @@ function TeamInfo() {
             .then(navigate('/allteams'))
     }
 
-    console.log(team);
-
     const updateTeam = () => {
         navigate(`/team/update/${id}`)
     }
@@ -43,17 +40,14 @@ function TeamInfo() {
   return (
     <>
       <Navigate />
-      <div className='my-4 d-flex justify-content-center'>
-        <SearchFunction />
-      </div>
       <div className="team-info">
         <Container style={{width: "100%"}}>
           { isLoading ? <Spinner animation="grow" /> :
           <Row>
-            <Col xs={12} md={4}  className='d-inline-flex flex-column justift-content-center ms-auto pb-3'>
-              <Image src={team.badgeUrl} className="img"></Image>
+            <Col xs={12} md={4}  className='d-inline-flex flex-column justify-content-center align-items-center ms-auto pb-3'>
+              <Image src={team.badgeUrl} className="img-fluid"></Image>
             </Col>
-            <Col xs={12} md={4} className='d-inline-flex flex-column justift-content-center ms-auto pb-3'>
+            <Col xs={12} md={4} className='d-inline-flex flex-column justify-content-center align-items-center ms-auto pb-3'>
               <h4>{team.name}</h4>
               <p>Nickname: {team.nickname}</p>
               <p>Founded: {team.founded}</p>
@@ -63,8 +57,8 @@ function TeamInfo() {
               <p>League: {team.league}</p>
               <p>Coach: {team.coach}</p>
             </Col>
-            <Col xs={12} md={4} className='d-flex flex-row justify-content-center pb-3'>
-            <div style={{width: '50%'}}>
+            <Col xs={12} md={4} className='d-flex flex-row justify-content-center align-items-start pb-3'>
+            <div className="mt-5">
               <Button onClick={() => navigate(-1)} className='custom-btn-light mb-2' style={{width: '100%'}}>Back</Button>
               <Button onClick={updateTeam} className='custom-btn-light mb-2 ' style={{width: '100%'}}>Update</Button>
               <Button onClick={deleteTeam} className='custom-btn-light mb-2 ' style={{width: '100%'}}>Delete</Button>

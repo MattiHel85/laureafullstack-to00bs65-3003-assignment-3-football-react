@@ -4,7 +4,7 @@ import { Container } from 'react-bootstrap'
 
 
 function Banner({teams}) {
-  console.log("Teams from banner", teams )
+  
   return (
     <>
     
