@@ -7,6 +7,7 @@ import Navigate from "./Navigate";
 import axios from "axios";
 import Spinner from 'react-bootstrap/Spinner';
 import Card from 'react-bootstrap/Card';
+import Table from 'react-bootstrap/Table'
 
 function TeamInfo() {
     const [isLoading, setIsLoading] = useState(false);
@@ -42,36 +43,68 @@ function TeamInfo() {
       <div className="team-info">
         <Container style={{width: "100%"}} className="p-2 d-flex justify-content-center align-items-center">
           { isLoading ? <Spinner animation="grow" /> :         
-              <Card className="p-5 d-flex justify-content-center align-items-center" style={{ border: "5px solid rgb(60, 0, 90)", borderRadius: "25px"}}>
-                <Card.Img className="mx-1" variant="top" src={team.badgeUrl} />  
-                <Card.Title style={{fontSize: "40px"}}>{team.name}</Card.Title>
-                <hr /> 
-                <Card.Subtitle style={{fontSize: "30px"}}>Nickname: {team.nickname}</Card.Subtitle>
-                <hr />
+              <Card className="d-flex justify-content-center align-items-center" style={{ border: "5px solid rgb(60, 0, 90)", borderRadius: "25px"}}>
+                <Card.Img className="mx-1 p-5" variant="top" src={team.badgeUrl} style={{backgroundColor: "rgb(60, 0, 90)"}}/>  
+                <Card.Title className="mb-3"  style={{fontSize: "40px"}}>{team.name}</Card.Title>
+                <Card.Subtitle className="mb-2" style={{fontSize: "20px"}}>Nickname: {team.nickname}</Card.Subtitle>
                 <div className="my-3 d-column-flex justify-content-center align-items-center">
-                  <Card.Text className="mx-2" style={{fontSize: "20px"}}>
-                    Founded: {team.founded} 
-                  </Card.Text>
-                  <Card.Text className="mx-2" style={{fontSize: "20px"}}>
-                    Ground name: {team.groundName}
-                  </Card.Text>
-                  <Card.Text className="mx-2" style={{fontSize: "20px"}}>
-                    Ground capacity: {team.groundCapacity}
-                  </Card.Text>
-                  <Card.Text className="mx-2" style={{fontSize: "20px"}}>
-                    Country: {team.country}
-                  </Card.Text>
-                  <Card.Text className="mx-2" style={{fontSize: "20px"}}>
-                    League: {team.league}
-                  </Card.Text>
-                  <Card.Text className="mx-2" style={{fontSize: "20px"}}>
-                    Coach: {team.coach}
-                  </Card.Text>
+                  <Table>
+                    <tbody>
+                      <tr>
+                        <td>
+                          Founded
+                        </td>
+                        <td>
+                         {team.founded}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Ground name
+                        </td>
+                        <td>
+                          {team.groundName}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Ground capacity
+                        </td>
+                        <td>
+                          {team.groundCapacity}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Country
+                        </td>
+                        <td>
+                          {team.country}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          League
+                        </td>
+                        <td>
+                          {team.league}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          Coach
+                        </td>
+                        <td>
+                          {team.coach}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </Table>
                 </div>     
 
                 {
                 showDeleteButton === false ? 
-                  <div className="d-inline-flex justify-content-center">
+                  <div className="mb-2 d-inline-flex justify-content-center">
                     <Button onClick={() => navigate(-1)} className='custom-btn mx-2' style={{width: '50%'}}>Back</Button>
                     <Button onClick={updateTeam} className='custom-btn mx-2 ' style={{width: '50%'}}>Update</Button>
                     <Button onClick={() => setShowDeleteButton(true)} variant="danger" className='mx-2 ' style={{width: '50%'}}>Delete</Button>
