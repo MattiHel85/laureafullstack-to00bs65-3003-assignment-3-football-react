@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import '../App.css';
 import Button from 'react-bootstrap/Button';
@@ -33,7 +33,7 @@ function AddTeam() {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(team)
         })
-        team.value !== null ? navigate('/allteams') : setErrorMessage('Something went wrong, please try again')
+        team.value > 0 ? navigate('/allteams') : setErrorMessage('Please fill in all fields')
     }
     return (
         <>
