@@ -21,7 +21,11 @@ function SearchFunction({teams}) {
     const teamSearch = () => {
         setSearchedTeam(search);
         setTeamsForSearch(teams)
-        search !== null ? teamsForSearch.map((team) => {team.name.toLowerCase() === search.toLowerCase() ? navigate(`/team/${team._id}`) : setShow(true)}) : setShow(true)
+        search !== null ? teamsForSearch.map((team) => 
+        {
+            team.name.toLowerCase() === search.toLowerCase() ? 
+            navigate(`/team/${team._id}`) : setShow(true)
+        }) : setShow(true)
     }
 
     return (
@@ -62,10 +66,10 @@ function SearchFunction({teams}) {
                 <Row className="d-flex justify-content-center">
                     <InputGroup className="mb-3" style={{width: "75%"}}>
                         <Form.Control
-                          placeholder="Find team"
-                          aria-label="Search team"
-                          aria-describedby="Search"
-                          onChange={(e) => setSearch(e.target.value)}
+                            placeholder="Find team"
+                            aria-label="Search team"
+                            aria-describedby="Search"
+                            onChange={(e) => setSearch(e.target.value)}
                         />
                         <Button 
                             className="custom-btn" 
