@@ -85,17 +85,19 @@ function AddTeam() {
                         </Col>
                         <Col xs="12" sm="3"></Col>
                     </Row>
-                    <Row className="text-center px-5 d-flex justify-content-center align-items-start">
-                        <Col xs="12" md="6">
-                            <Button className="custom-btn-light mt-1" style={{width: "100px"}} onClick={() => navigate(-1)}>
-                                Back
-                            </Button>
-                        </Col>
-                        <Col xs="12" md="6">
+                    <Row className=" text-center d-flex justify-content-center">
+                        <Col xs="12" sm="3"></Col>
+                        <Col xs="12" md="3">
                             <Button className="custom-btn-light mt-1" style={{width: "100px"}} onClick={postData} variant="primary" type="submit">
                               Submit
                             </Button>
                         </Col>
+                        <Col xs="12" md="3">
+                            <Button className="custom-btn-light mt-1" style={{width: "100px"}} onClick={() => navigate(-1)}>
+                                Back
+                            </Button>
+                        </Col>
+                        <Col xs="12" sm="3"></Col>
                     </Row>
                 </Container>
             </Form>
