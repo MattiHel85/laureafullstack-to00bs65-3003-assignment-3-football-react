@@ -28,7 +28,7 @@ function SearchFunction({teams}) {
       <>           
         <Container className="mt-3 py-5 mx-3 d-flex justify-content-center">
             <Col>
-                <Row>
+                <Row className="p-3">
                     {show === true ? 
                         <Alert className="alert" variant="danger">
                             <Alert.Heading>
