@@ -22,13 +22,16 @@ function TeamCardHolder({teams, isLoading}) {
                     <h1>Browse Teams</h1>
                 </div>
                 <div className='d-flex flex-row justify-content-center flex-wrap'>
-                    {isLoading ? 
+                    { isLoading && 
                         <div style={{width: '100%'}} className='d-flex justify-content-center'>
                             <Spinner animation="grow" /> 
                         </div>
-                        : teams.map((team) => (
-                        <TeamCard key={team._id} id={team._id} name={team.name} badge={team.badgeUrl} nickname={team.nickname} groundName={team.groundName}/>
-                    ))}
+                    }
+                    { !isLoading &&
+                        teams.map((team) => (
+                            <TeamCard key={team._id} id={team._id} name={team.name} badge={team.badgeUrl} nickname={team.nickname} groundName={team.groundName}/>
+                        ))
+                        }
                 </div>
                 <div className='m-5 text-center'>
                     <Button className='custom-btn-light' onClick={() => navigate(-1)} style={{width:"25%"}}>Back</Button>

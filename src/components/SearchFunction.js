@@ -33,11 +33,15 @@ function SearchFunction({teams}) {
         <Container className="mt-3 py-5 mx-3 d-flex justify-content-center">
             <Col>
                 <Row className="p-3">
-                    {show === true ? 
+                    {
+                        show && 
                         <Alert className="alert" variant="danger">
                             <Alert.Heading>
                                 {
-                                    searchedTeam ? `The team ${searchedTeam} isn't listed, please try again.`: "Please input some text."
+                                    searchedTeam && `The team ${searchedTeam} isn't listed, please try again.`
+                                }
+                                {
+                                    !searchedTeam && "Please input some text."
                                 }
                             </Alert.Heading>
                             <hr />
@@ -45,22 +49,24 @@ function SearchFunction({teams}) {
                                 <div className="d-flex justify-content-start">
                                     <p>
                                         {
-                                            searchedTeam ? "If you think it should be then you can add it yourself." : "I don't see the sense in searching for nothing"
+                                            searchedTeam && "If you think it should be then you can add it yourself."
+                                        }
+                                        {
+                                            !searchedTeam && "I don't see the sense in searching for nothing"
                                         }
                                     </p>
                                 </div>
                                 <div className="d-flex justify-content-end">
                                     {
-                                        searchedTeam ? <Button onClick={() => navigate('/addteam')} variant="outline-danger" className="mx-1">Add team</Button> : ""
-                                    }                                    
+                                        searchedTeam && <Button onClick={() => navigate('/addteam')} variant="outline-danger" className="mx-1">Add team</Button>
+                                    }
                                     <Button onClick={() => setShow(false)} variant="outline-danger" className="mx-1">
                                         Close 
                                     </Button>
                                 </div>
                                 
                             </div>
-                        </Alert> :
-                        <p></p>
+                        </Alert>
                     }
                 </Row>
                 <Row className="d-flex justify-content-center">
