@@ -28,7 +28,7 @@ function About() {
       <div className='d-flex flex-row justify-content-center p-5 mb-4'>
         <div className='p-3 m-1 flex-column text-center'>
           <h5>LinkedIn</h5>
-          <SocialIcon size="lg" url='https://www.linkedin.com/in/matt-simpson-finland/' target={'_blank'} rel="noreferrer"/>
+          <SocialIcon  size="lg" url='https://www.linkedin.com/in/matt-simpson-finland/' target={'_blank'} rel="noreferrer"/>
         </div>
         <div className='p-3 m-1 flex-column text-center'>
           <h5>GitHub</h5>

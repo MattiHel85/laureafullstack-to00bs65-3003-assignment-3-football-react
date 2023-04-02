@@ -21,11 +21,15 @@ function SearchFunction({teams}) {
     const teamSearch = () => {
         setSearchedTeam(search);
         setTeamsForSearch(teams)
+
         search !== null ? teamsForSearch.map((team) => 
         {
             team.name.toLowerCase() === search.toLowerCase() ? 
             navigate(`/team/${team._id}`) : setShow(true)
         }) : setShow(true)
+
+
+        setSearch('')
     }
 
     return (
@@ -75,6 +79,7 @@ function SearchFunction({teams}) {
                             placeholder="Find team"
                             aria-label="Search team"
                             aria-describedby="Search"
+                            value={search}
                             onChange={(e) => setSearch(e.target.value)}
                         />
                         <Button 
