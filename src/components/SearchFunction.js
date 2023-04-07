@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -10,15 +10,27 @@ import Alert from 'react-bootstrap/Alert';
 
 
 
-function SearchFunction({teams}) {
+function SearchFunction({}) {
     const navigate = useNavigate();
+    const [teams, setTeams ] = useState([]);
     const [search, setSearch] = useState('')
     const [teamsForSearch, setTeamsForSearch] = useState([])
     const [searchedTeam, setSearchedTeam] = useState()
     const [show, setShow] = useState(false)
 
+    useEffect(() => {
+        const fetchTeams = async () => {
+          const response = await fetch('https://football-teams-rest-api-assignment.onrender.com/api/getall')
+          const jsonData = await response.json()
+          const data = jsonData.sort((a, b) => a.name.localeCompare(b.name))
+          setTeams(data)
+        }
+        fetchTeams()
+    }, []) 
+
     
-    const teamSearch = () => {
+    const teamSearch = (e) => {
+        e.preventDefault()
         setSearchedTeam(search);
         setTeamsForSearch(teams)
 

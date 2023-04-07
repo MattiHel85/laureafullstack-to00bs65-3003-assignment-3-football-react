@@ -35,7 +35,8 @@ function UpdateTeam() {
         fetchTeam()
       }, [])
 
-    const updateData = () => {
+    const updateData = (e) => {
+        e.preventDefault()
         const team = {badgeUrl, name, nickname, founded, groundName, groundCapacity, country, league, coach}
 
         fetch(`https://football-teams-rest-api-assignment.onrender.com/api/update/${id}`, {

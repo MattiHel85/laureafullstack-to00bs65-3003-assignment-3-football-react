@@ -26,7 +26,6 @@ function AddTeam() {
 
     const postData = () => {
         const team = {badgeUrl, name, nickname, founded, groundName, groundCapacity, country, league, coach}
-        console.log(team)
 
         fetch('https://football-teams-rest-api-assignment.onrender.com/api/add', {
             method: 'POST',
