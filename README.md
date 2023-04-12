@@ -2,7 +2,11 @@
 
 React front end to connected to back end I made as part of my studies at Laurea UAS.
 
-## Description of app
+## 12.4.2023 - update 
+
+I will gradually switch over from useEffect to react query for API calls and will be making improvements to the UI and general responsiveness. Once user functionality is added to the backend (i.e. require signup to add/teams and admin status to approve changes/delete teams) the front end will be updated too.
+
+### Description of app
 
 Teamfinder is a react app that displays details of football teams from my own API [rest_api_assignment_TO00BS65-3003](https://github.com/MattiHel85/rest_api_assignment_TO00BS65-3003).
 
