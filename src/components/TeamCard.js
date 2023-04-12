@@ -16,7 +16,7 @@ function TeamCard(props) {
       <Card.Img variant="top" src={props.badge} alt={props.badge} style={{backgroundColor: "rgb(60, 0, 90)", padding: "20px", height: "350px"}}/>
       <Card.Body style={{height: "100px"}}>
         <div className='d-flex flex-row justify-content-between'>          
-          <Card.Title as={"h3"}>{props.name}</Card.Title>
+          <Card.Title as={"h4"}>{props.name}</Card.Title>
           <Button onClick={navigateToTeamCard} className='custom-btn'>More info</Button>
         </div>
       </Card.Body>
