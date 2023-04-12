@@ -46,64 +46,59 @@ function SearchFunction({}) {
 
     return (
       <>           
-        <Container className="mt-3 py-5 mx-3 d-flex justify-content-center">
-            <Col>
-                <Row className="p-3">
-                    {
-                        show && 
-                        <Alert className="alert" variant="danger">
-                            <Alert.Heading>
-                                {
-                                    searchedTeam && `The team ${searchedTeam} isn't listed, please try again.`
-                                }
-                                {
-                                    !searchedTeam && "Please input some text."
-                                }
-                            </Alert.Heading>
-                            <hr />
-                            <div>
-                                <div className="d-flex justify-content-start">
-                                    <p>
-                                        {
-                                            searchedTeam && "If you think it should be then you can add it yourself."
-                                        }
-                                        {
-                                            !searchedTeam && "I don't see the sense in searching for nothing"
-                                        }
-                                    </p>
-                                </div>
-                                <div className="d-flex justify-content-end">
+        <div>
+            <div>
+                <Form className="d-flex">
+                    <Form.Control
+                      type="search"
+                      placeholder="Find team"
+                      className="me-2"
+                      aria-label="Search"
+                      value={search}
+                      onChange={(e) => setSearch(e.target.value)}
+                    />
+                    <Button className="custom-btn" onClick={teamSearch}>Search</Button>
+                </Form>
+            </div>
+            <br></br>
+            <div>
+            {
+                    show && 
+                    <Alert className="alert" variant="danger">
+                        <Alert.Heading>
+                            {
+                                searchedTeam && `The team ${searchedTeam} isn't listed, please try again.`
+                            }
+                            {
+                                !searchedTeam && "Please input some text."
+                            }
+                        </Alert.Heading>
+                        <hr />
+                        <div>
+                            <div className="d-flex justify-content-start">
+                                <p>
                                     {
-                                        searchedTeam && <Button onClick={() => navigate('/addteam')} variant="outline-danger" className="mx-1">Add team</Button>
+                                        searchedTeam && "If you think it should be then you can add it yourself."
                                     }
-                                    <Button onClick={() => setShow(false)} variant="outline-danger" className="mx-1">
-                                        Close 
-                                    </Button>
-                                </div>
-                                
+                                    {
+                                        !searchedTeam && "I don't see the sense in searching for nothing"
+                                    }
+                                </p>
                             </div>
-                        </Alert>
-                    }
-                </Row>
-                <Row className="d-flex justify-content-center">
-                    <InputGroup className="mb-3" style={{width: "75%"}}>
-                        <Form.Control
-                            placeholder="Find team"
-                            aria-label="Search team"
-                            aria-describedby="Search"
-                            value={search}
-                            onChange={(e) => setSearch(e.target.value)}
-                        />
-                        <Button 
-                            className="custom-btn" 
-                            onClick={teamSearch}
-                        >
-                          Search
-                        </Button>
-                    </InputGroup>
-                </Row>
-            </Col>         
-        </Container>
+                            <div className="d-flex justify-content-end">
+                                {
+                                    searchedTeam && <Button onClick={() => navigate('/addteam')} variant="outline-danger" className="mx-1">Add team</Button>
+                                }
+                                <Button onClick={() => setShow(false)} variant="outline-danger" className="mx-1">
+                                    Close 
+                                </Button>
+                            </div>
+                            
+                        </div>
+                    </Alert>
+                }
+            </div>
+        </div>
       </>
     )
 }

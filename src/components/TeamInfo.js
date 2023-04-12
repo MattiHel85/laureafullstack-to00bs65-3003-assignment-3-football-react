@@ -44,7 +44,7 @@ function TeamInfo() {
         <Container style={{width: "100%"}} className="p-2 d-flex justify-content-center align-items-center">
           { isLoading && <Spinner animation="grow" /> }
           { !isLoading &&
-            <Card className="d-flex justify-content-center align-items-center" style={{ border: "5px solid rgb(60, 0, 90)", borderRadius: "25px"}}>
+            <Card className="d-flex justify-content-center align-items-center" style={{ border: "5px solid rgb(60, 0, 90)", borderRadius: "15px"}}>
             <Card.Img className="mx-1 p-5" variant="top" src={team.badgeUrl} style={{backgroundColor: "rgb(60, 0, 90)"}}/>  
             <Card.Title className="mb-3"  style={{fontSize: "40px"}}>{team.name}</Card.Title>
             <Card.Subtitle className="mb-2" style={{fontSize: "20px"}}>Nickname: {team.nickname}</Card.Subtitle>

@@ -6,6 +6,11 @@
   box-sizing: border-box;
 }
 
+h3 {  
+  color: rgb(60, 0, 90) !important;
+  /* text-transform: uppercase; */
+}
+
 #teamCardHolder {
   margin-bottom: 100px !important;
 }
@@ -25,20 +30,41 @@
 }
 
 .custom-nav {
-  background-color: rgb(60, 0, 90) !important;
-  color: white !important;
-  height: 100px;
+  background-color: rgb(255, 255, 255) !important;
+  border-bottom: 1px solid rgb(60, 0, 90) !important;
+  box-shadow: 1px 5px 5px rgb(60, 0, 90, 0.5) !important;
 }
 
 .custom-navbrand {
+  background-color: rgb(60, 0, 90) !important;
   color: white !important;
+  font-weight: 600 !important;
   font-size: 50px !important;
+  border: 2px solid rgb(60, 0, 90) !important;
+  border-radius: 15px;
+}
+.custom-navbrand-sm {
+  background-color: rgb(60, 0, 90) !important;
+  color: white !important;
+  font-weight: 600 !important;
+  font-size: 30px !important;
+  border: 2px solid rgb(60, 0, 90) !important;
+  border-radius: 15px;
+}
+p {
+  color: rgb(35, 35, 35) !important;
+  font-size: 20px !important;
 }
 
 .custom-navlink {
-  color: white !important;
-  font-size: 18px !important;
-  width: 100px;
+  color: rgb(60, 0, 90) !important;
+  font-size: 20px !important;  
+  font-weight: 600 !important;
+  text-transform: uppercase;
+}
+
+.nav-collapse {
+  color: rgb(60, 0, 90) !important;
 }
 
 .custom-nav-collapse {
@@ -47,9 +73,9 @@
 }
 
 .banner-box {
-  height: 700px;
+  height: 500px;
   width: 100%;
-  background-color: rgb(243, 243, 243);
+  color: rgb(35, 35, 35) !important;
   font-size: 75px;
   font-weight: 500;
 }
@@ -57,7 +83,6 @@
 .banner-box-title {
   display: flex;
   justify-content: center;
-  padding-top: 150px;
 }
 
 .footer {
