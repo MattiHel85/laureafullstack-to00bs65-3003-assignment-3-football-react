@@ -2,7 +2,6 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import TeamCard from './TeamCard'
 import Navigate from './Navigate';
-import Footer from './Footer';
 import { Button } from 'react-bootstrap';
 import Spinner from 'react-bootstrap/Spinner';
 import SearchFunction from './SearchFunction';
@@ -37,7 +36,6 @@ function TeamCardHolder({teams, isLoading}) {
                     <Button className='custom-btn-light' onClick={() => navigate(-1)} style={{width:"25%"}}>Back</Button>
                 </div>                
             </div>
-            <Footer />
         </>
       
     )

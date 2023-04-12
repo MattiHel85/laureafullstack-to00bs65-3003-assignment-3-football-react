@@ -7,7 +7,6 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Navigate from "./Navigate";
-import Footer from "./Footer"
 
 
 function UpdateTeam() {
@@ -114,7 +113,6 @@ function UpdateTeam() {
                 </Container>
             </Form>
         </div>
-        <Footer />
     </>
     
     )

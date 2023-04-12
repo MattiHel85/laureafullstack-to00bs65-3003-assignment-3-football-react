@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import Container from 'react-bootstrap/Container';
-import Footer from "./Footer";
 import Navigate from "./Navigate";
 import axios from "axios";
 import Spinner from 'react-bootstrap/Spinner';
@@ -122,7 +121,6 @@ function TeamInfo() {
           }
         </Container>              
       </div>
-      <Footer />
     </>
   )
 }
