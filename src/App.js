@@ -44,13 +44,18 @@ function App() {
       <Routes>
         {/* Home route  */}
         <Route path="/" element={[<Navigate />, <About />]} />
+        
         {/* Team routes  */}
         <Route path="/allteams" element={ <TeamCardHolder isLoading={isLoading} teams={teams} />} />
         <Route path="/addteam" element={<AddTeam />} />
         <Route path="/team/:id" element={<TeamInfo teams={teams} />} />
         <Route path="/team/update/:id" element={<UpdateTeam />} />
+        
         {/* User routes  */}
-        <Route path="/allusers" element={ <UserCardHolder isLoading={isLoading} users={users}/>} />
+        <Route path="/allusers" element={ <UserCardHolder isLoading={isLoading} users={users} teams={teams}/>} />
+        
+        {/* Uncomment the routes below once each component is ready  */}
+
         {/* <Route path="/adduser" element={<AddUser />} />
         <Route path="/user/:id" element={<UserInfo users={users} />} />
         <Route path="/user/update/:id" element={<UpdateUser />} /> */}

@@ -4,17 +4,17 @@ import UserCard from './UserCard'
 import Navigate from './Navigate';
 import { Button } from 'react-bootstrap';
 import Spinner from 'react-bootstrap/Spinner';
-// import SearchFunction from './SearchFunction';
+import SearchFunction from './SearchFunction';
 
-function UserCardHolder({users, isLoading}) {
+function UserCardHolder({users, isLoading, teams}) {
     const navigate = useNavigate();
 
     return (
         <>
             <Navigate />
-            {/* <div className='my-4 d-flex justify-content-center'>
+            <div className='my-4 d-flex justify-content-center'>
                 <SearchFunction teams={teams}/>
-            </div> */}
+            </div>
             <div className='d-flex flex-column' style={{width: "100%", marginBottom: "75px"}}>
                 
                 <div className=' d-flex justify-content-center my-4'>
@@ -28,16 +28,6 @@ function UserCardHolder({users, isLoading}) {
                     }
                     { !isLoading &&
                         users.map((user) => (
-                            // <div key={user._id} className='m-5 d-flex flex-column justify-content-center flex-wrap'>
-                            //     <h2>
-                            //         {user.firstName} {user.lastName}
-                            //     </h2>
-                            //     <p>
-                            //         Email: {user.emailAddress}
-                            //     </p>
-                            //     <img src={user.profilePicUrl} alt={`profile picture for user ${user.firstName} ${user.lastName}`} />
-                            // </div>
-
                             <UserCard key={user._id} id={user._id} firstName={user.firstName} lastName={user.lastName}/>
                         ))
                         }
