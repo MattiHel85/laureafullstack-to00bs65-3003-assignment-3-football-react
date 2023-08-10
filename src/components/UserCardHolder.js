@@ -28,7 +28,7 @@ function UserCardHolder({users, isLoading, teams}) {
                     }
                     { !isLoading &&
                         users.map((user) => (
-                            <UserCard key={user._id} id={user._id} firstName={user.firstName} lastName={user.lastName}/>
+                            <UserCard key={user._id} id={user._id} firstName={user.firstName} lastName={user.lastName} profilePicUrl={user.profilePicUrl}/>
                         ))
                         }
                 </div>
