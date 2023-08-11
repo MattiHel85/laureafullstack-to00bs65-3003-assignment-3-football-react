@@ -24,6 +24,7 @@ function Navigate() {
               <Nav.Link href="/allteams" className='custom-navlink'>View teams</Nav.Link>
               <Nav.Link href="/addteam" className='custom-navlink' >Add team</Nav.Link>
               <Nav.Link href="/adduser" className='custom-navlink' >Sign up</Nav.Link>
+              <Nav.Link href="/signin" className='custom-navlink' >Sign in</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

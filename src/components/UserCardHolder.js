@@ -6,7 +6,7 @@ import { Button } from 'react-bootstrap';
 import Spinner from 'react-bootstrap/Spinner';
 import SearchFunction from './SearchFunction';
 
-function UserCardHolder({users, isLoading, teams}) {
+function UserCardHolder({users, isLoggedIn, isLoading, teams}) {
     const navigate = useNavigate();
 
     return (

@@ -9,12 +9,14 @@ import TeamCardHolder from "./components/TeamCardHolder";
 import TeamInfo from "./components/TeamInfo";
 import UpdateTeam from "./components/UpdateTeam";
 import UserCardHolder from "./components/UserCardHolder";
-import AddUser from "./components/AddUser";
+import SignUp from "./components/SignUp";
+import SignIn from "./components/SignIn"
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [teams, setTeams ] = useState([]);
   const [users, setUsers ] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,19 +47,20 @@ function App() {
         <Route path="/" element={[<Navigate />, <About />]} />
         
         {/* Team routes  */}
-        <Route path="/allteams" element={ <TeamCardHolder isLoading={isLoading} teams={teams} />} />
-        <Route path="/addteam" element={<AddTeam />} />
-        <Route path="/team/:id" element={<TeamInfo teams={teams} />} />
-        <Route path="/team/update/:id" element={<UpdateTeam />} />
+        <Route path="/allteams" element={ <TeamCardHolder isLoading={isLoading} teams={teams} isLoggedIn={isLoggedIn}/>} />
+        <Route path="/addteam" element={<AddTeam isLoggedIn={isLoggedIn}/>} />
+        <Route path="/team/:id" element={<TeamInfo teams={teams} isLoggedIn={isLoggedIn}/>} />
+        <Route path="/team/update/:id" element={<UpdateTeam isLoggedIn={isLoggedIn}/>} />
         
         {/* User routes  */}
-        <Route path="/allusers" element={ <UserCardHolder isLoading={isLoading} users={users} teams={teams}/>} />
-        <Route path="/adduser" element={<AddUser />} />
+        <Route path="/allusers" element={ <UserCardHolder isLoggedIn={isLoggedIn} isLoading={isLoading} users={users} teams={teams}/>} />
+        <Route path="/signup" element={<SignUp isLoggedIn={isLoggedIn}/>} />
+        <Route path="/signin" element={<SignIn isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
+
         {/* Uncomment the routes below once each component is ready  */}
 
-        {/* <Route path="/adduser" element={<AddUser />} />
-        <Route path="/user/:id" element={<UserInfo users={users} />} />
-        <Route path="/user/update/:id" element={<UpdateUser />} /> */}
+        {/*<Route path="/user/:id" element={<UserInfo users={users} isLoggedIn={isLoggedIn}/>} />
+        <Route path="/user/update/:id" element={<UpdateUser isLoggedIn={isLoggedIn} />} /> */}
       </Routes>
     </Router>
   </>      

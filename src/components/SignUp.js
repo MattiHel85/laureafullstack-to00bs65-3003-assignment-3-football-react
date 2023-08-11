@@ -9,7 +9,7 @@ import Form from 'react-bootstrap/Form';
 import Navigate from "./Navigate";
 
 
-function AddTeam() {
+function SignUp() {
     const [firstName, setFirstName] = useState();
     const [lastName, setLastName ] = useState();
     const [emailAddress, setEmailAddress ] = useState();
@@ -34,7 +34,7 @@ function AddTeam() {
                     headers: {"Content-Type": "application/json"},
                     body: JSON.stringify(user)
                 })
-            navigate('/home')
+            console.log(user.value)
         }
 
         user.password === confirmPassword ? signUp() : setErrorMessage(`Password does not match. Please try again.`)
@@ -99,4 +99,4 @@ function AddTeam() {
     )
 }
 
-export default AddTeam
+export default SignUp
