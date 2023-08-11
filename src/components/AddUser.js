@@ -27,12 +27,17 @@ function AddTeam() {
 
         const confirmPassword = confirmedPassword
 
-        user.password === confirmPassword ? fetch('https://football-teams-rest-api-assignment.onrender.com/api/users/add', 
-        {
-            method: 'POST',
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(user)
-        }) : setErrorMessage(`User error: ${user.firstName} ${user.lastName} could not be created at this time. Please try again.`)
+        const signUp = () => {
+            fetch('https://football-teams-rest-api-assignment.onrender.com/api/users/add', 
+                {
+                    method: 'POST',
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify(user)
+                })
+            navigate('/home')
+        }
+
+        user.password === confirmPassword ? signUp() : setErrorMessage(`Password does not match. Please try again.`)
     }
     return (
         <>
