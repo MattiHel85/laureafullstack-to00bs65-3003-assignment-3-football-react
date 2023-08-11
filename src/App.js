@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {BrowserRouter as Router, Route, Routes, useParams} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import './App.css';
 import Navigate from "./components/Navigate";
 import 'bootstrap/dist/css/bootstrap.css'
@@ -9,6 +9,7 @@ import TeamCardHolder from "./components/TeamCardHolder";
 import TeamInfo from "./components/TeamInfo";
 import UpdateTeam from "./components/UpdateTeam";
 import UserCardHolder from "./components/UserCardHolder";
+import AddUser from "./components/AddUser";
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
@@ -31,8 +32,6 @@ function App() {
       setIsLoading(false);
       setTeams(sortedTeams)
       setUsers(sortedUsers)
-      // Check users are working! 
-      console.log(users)
     }
 
     fetchData()
@@ -53,7 +52,7 @@ function App() {
         
         {/* User routes  */}
         <Route path="/allusers" element={ <UserCardHolder isLoading={isLoading} users={users} teams={teams}/>} />
-        
+        <Route path="/adduser" element={<AddUser />} />
         {/* Uncomment the routes below once each component is ready  */}
 
         {/* <Route path="/adduser" element={<AddUser />} />
