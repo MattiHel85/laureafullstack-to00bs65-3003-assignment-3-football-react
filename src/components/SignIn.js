@@ -9,7 +9,7 @@ import Form from 'react-bootstrap/Form';
 import Navigate from "./Navigate";
 
 
-function SignIn(setIsLoggedIn) {
+function SignIn( {isLoggedIn, setIsLoggedIn}) {
     const [emailAddress, setEmailAddress ] = useState();
     const [password, setPassword ] = useState();
     const [confirmedPassword, setConfirmedPassword ] = useState();
@@ -29,11 +29,12 @@ function SignIn(setIsLoggedIn) {
                 {
                     method: 'POST',
                     headers: {"Content-Type": "application/json"},
-                    body: JSON.stringify(user)
+                    body: JSON.stringify({emailAddress: `${user.emailAddress}`, password: `${user.password}`})
                 }
             )
             .then(res => res.json())
             .then (data => {
+                console.log('Res data', data) // Log res data
                 if(data.token){
                     localStorage.setItem('token', data.token)
                 } else {
@@ -41,9 +42,11 @@ function SignIn(setIsLoggedIn) {
                 }
             })
             .catch (err => {
-                console.log('error: ', err)
+                console.log(`Error: ${err}`)
             })
             setIsLoggedIn(true)
+            console.log(isLoggedIn)
+
         }
 
         user.password === confirmPassword ? signIn() : setErrorMessage(`Password does not match. Please try again.`)
