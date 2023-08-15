@@ -13,6 +13,8 @@ function SignIn( {isLoggedIn, setIsLoggedIn}) {
     const [emailAddress, setEmailAddress ] = useState();
     const [password, setPassword ] = useState();
     const [confirmedPassword, setConfirmedPassword ] = useState();
+    const [ token, setToken ] = useState();
+    const [ userId, setUserId ] = useState();
 
     const [errorMessage, setErrorMessage ] = useState("");
 
@@ -34,9 +36,15 @@ function SignIn( {isLoggedIn, setIsLoggedIn}) {
             )
             .then(res => res.json())
             .then (data => {
-                console.log('Res data', data) // Log res data
+                // console.log('Res data', data) // Log res data
                 if(data.token){
                     localStorage.setItem('token', data.token)
+                    localStorage.setItem('userId', data.userId)
+                    setToken(data.token)
+                    setUserId(data.userId)
+                    console.log(token)
+                    console.log(userId)
+                    navigate(`/user/${userId}`)
                 } else {
                     console.log('no token found')
                 }
@@ -45,8 +53,6 @@ function SignIn( {isLoggedIn, setIsLoggedIn}) {
                 console.log(`Error: ${err}`)
             })
             setIsLoggedIn(true)
-            console.log(isLoggedIn)
-
         }
 
         user.password === confirmPassword ? signIn() : setErrorMessage(`Password does not match. Please try again.`)
