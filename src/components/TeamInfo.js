@@ -25,7 +25,7 @@ function TeamInfo() {
         setTeam(data)
       }
       fetchTeam()
-    }, [])
+    }, [id])
 
     async function deleteTeam(){
         axios.delete(`https://football-teams-rest-api-assignment.onrender.com/api/delete/${id}`)

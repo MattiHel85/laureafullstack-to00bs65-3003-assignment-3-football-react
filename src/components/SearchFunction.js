@@ -6,7 +6,7 @@ import Alert from 'react-bootstrap/Alert';
 
 
 
-function SearchFunction({}) {
+function SearchFunction() {
     const navigate = useNavigate();
     const [teams, setTeams ] = useState([]);
     const [search, setSearch] = useState('')
@@ -30,12 +30,14 @@ function SearchFunction({}) {
         setSearchedTeam(search);
         setTeamsForSearch(teams)
 
-        search !== null ? teamsForSearch.map((team) => 
-        {
-            team.name.toLowerCase() === search.toLowerCase() ? 
-            navigate(`/team/${team._id}`) : setShow(true)
-        }) : setShow(true)
-
+        teamsForSearch.forEach((team) => {
+            if (team.name.toLowerCase() === search.toLowerCase()) {
+                navigate(`/team/${team._id}`);
+            } else {
+                setShow(true);
+            }
+        });
+        
 
         setSearch('')
     }

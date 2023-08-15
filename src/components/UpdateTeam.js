@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate, useParams} from "react-router-dom";
 import '../App.css';
 import Button from 'react-bootstrap/Button';
@@ -23,16 +23,16 @@ function UpdateTeam() {
 
     const navigate = useNavigate();
     const { id } = useParams();   
-    
-    const fetchTeam = async () => {
+
+    const fetchTeam = useCallback(async () => {
         const response = await fetch(`https://football-teams-rest-api-assignment.onrender.com/api/${id}`)
         const data = await response.json()
-        setTeam(data)
-      }
+        setTeam(data);
+    }, [id]);
 
     useEffect(() => {
         fetchTeam()
-      }, [])
+      }, [fetchTeam])
 
     const updateData = (e) => {
         e.preventDefault()
