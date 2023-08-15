@@ -9,7 +9,7 @@ import Form from 'react-bootstrap/Form';
 import Navigate from "./Navigate";
 
 
-function SignIn( {isLoggedIn, setIsLoggedIn}) {
+function SignIn( {isLoggedIn, setIsLoggedIn, setUserId, userId}) {
     const [emailAddress, setEmailAddress ] = useState();
     const [password, setPassword ] = useState();
     const [confirmedPassword, setConfirmedPassword ] = useState();
@@ -40,7 +40,9 @@ function SignIn( {isLoggedIn, setIsLoggedIn}) {
                     localStorage.setItem('token', data.token)
                     localStorage.setItem('userId', data.userId)
                     setToken(data.token)
+                    setUserId(data.userId)
                     console.log(token)
+                    console.log(userId)
                     navigate(`/user/${data.userId}`)
                 } else {
                     console.log('no token found')

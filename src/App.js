@@ -17,6 +17,7 @@ function App() {
   const [teams, setTeams ] = useState([]);
   const [users, setUsers ] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userId, setUserId] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -55,7 +56,7 @@ function App() {
         {/* User routes  */}
         <Route path="/allusers" element={ <UserCardHolder isLoggedIn={isLoggedIn} isLoading={isLoading} users={users} teams={teams}/>} />
         <Route path="/signup" element={<SignUp isLoggedIn={isLoggedIn}/>} />
-        <Route path="/signin" element={<SignIn isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
+        <Route path="/signin" element={<SignIn isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} userId={userId} setUserId={setUserId}/>} />
 
         {/* Uncomment the routes below once each component is ready  */}
 
