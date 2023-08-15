@@ -55,7 +55,7 @@ function App() {
         
         {/* User routes  */}
         <Route path="/allusers" element={ <UserCardHolder isLoggedIn={isLoggedIn} isLoading={isLoading} users={users} teams={teams}/>} />
-        <Route path="/signup" element={<SignUp isLoggedIn={isLoggedIn}/>} />
+        <Route path="/signup" element={<SignUp isLoggedIn={isLoggedIn} />} />
         <Route path="/signin" element={<SignIn isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} userId={userId} setUserId={setUserId}/>} />
 
         {/* Uncomment the routes below once each component is ready  */}

@@ -16,16 +16,21 @@ function SignUp() {
     const [password, setPassword ] = useState();
     const [confirmedPassword, setConfirmedPassword ] = useState();
     const [profilePicUrl, setProfilePicUrl] = useState();
-
-    const [errorMessage, setErrorMessage ] = useState("");
+    const [adminCode, setAdminCode] = useState();
+    const [isAdmin, setIsAdmin] = useState(false);
+    const [errorMessage, setErrorMessage ] = useState();
 
     const navigate = useNavigate();
 
+    const admin = '12345'; // change admin code and move to env variables once working 
+
     const postData = (e) => {
         e.preventDefault()
-        const user = {firstName, lastName, emailAddress, password, profilePicUrl}
+        const user = {firstName, lastName, emailAddress, password, profilePicUrl, isAdmin}
 
         const confirmPassword = confirmedPassword
+
+        admin === adminCode.toString() ? setIsAdmin(true) : setIsAdmin(false)
 
         const signUp = () => {
             fetch('https://football-teams-rest-api-assignment.onrender.com/api/users/add', 
@@ -73,6 +78,10 @@ function SignUp() {
                             <Form.Group className="mb-3">
                                 <Form.Label>Profile picture</Form.Label>
                                 <Form.Control type="text" placeholder="URL to hosted profile picture" onChange={(e) => setProfilePicUrl(e.target.value)} required/>
+                            </Form.Group> 
+                            <Form.Group className="mb-3">
+                                <Form.Label>Admin code</Form.Label>
+                                <Form.Control type="password" placeholder="Enter admin code if you don't have one. If not, leave blank" onChange={(e) => setAdminCode(e.target.value)} />
                             </Form.Group> 
                         </Col>
                         <Col xs="12" sm="3"></Col>
