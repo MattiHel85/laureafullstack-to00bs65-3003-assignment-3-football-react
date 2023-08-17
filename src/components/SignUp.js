@@ -81,7 +81,7 @@ function SignUp() {
                             </Form.Group> 
                             <Form.Group className="mb-3">
                                 <Form.Label>Admin code</Form.Label>
-                                <Form.Control type="password" placeholder="Enter admin code if you don't have one. If not, leave blank" onChange={(e) => setAdminCode(e.target.value)} />
+                                <Form.Control type="password" placeholder="Enter admin code if you have one. If not, leave blank" onChange={(e) => setAdminCode(e.target.value)} />
                             </Form.Group> 
                         </Col>
                         <Col xs="12" sm="3"></Col>
