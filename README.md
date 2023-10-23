@@ -1,10 +1,10 @@
-# Teamfinder
+# Teamfinder 1.0
 
 React front end to connected to back end I made as part of my studies at Laurea UAS.
 
-## 12.4.2023 - update 
+## 23.10.2023 - update 
 
-I will gradually switch over from useEffect to react query for API calls and will be making improvements to the UI and general responsiveness. Once user functionality is added to the backend (i.e. require signup to add/teams and admin status to approve changes/delete teams) the front end will be updated too.
+Teamfinder 2.0 is under construction and will be deployed when it is ready
 
 ### Description of app
 
